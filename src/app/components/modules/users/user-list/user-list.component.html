@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <ng-container *ngFor="let user of users">
+            <div class="card m-2" style="width: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{user.lastName}} {{ user.firstName}}</h5>
+                    <p class="text-info">
+                        {{user.introduction}}
+                    </p>
+                    <dl>
+                        <dt>Pozíció</dt>
+                        <dd>{{user.position}}</dd>
+
+                        <dt>E-mail</dt>
+                        <dd>{{user.email}}</dd>
+
+                        <dt>Telefon</dt>
+                        <dd>{{user.phone}}</dd>
+
+
+                    </dl>
+
+                </div>
+            </div>
+
+        </ng-container>
+    </div>
+</div>
