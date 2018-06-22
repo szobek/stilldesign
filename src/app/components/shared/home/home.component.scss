@@ -1,0 +1,14 @@
+:host {
+
+  #home-page {
+    background-image:  url('https://stilldesign.hu/wp-content/themes/stilldesign3/img/logo.png'), url("/assets/home-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100px, 100% ;
+    background-position: center 10px, center center;
+    height: auto;
+    min-height: 500px;
+    overflow-y: hidden;
+  }
+
+
+}

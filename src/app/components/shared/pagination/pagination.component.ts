@@ -15,7 +15,7 @@ export class PaginationComponent implements OnInit {
         console.log('a pagination:', pagination);
     }
 
-    @Output('selected-page') newPage: EventEmitter<number> = new EventEmitter<number>();
+    @Output('selected-page') newPage: EventEmitter<string> = new EventEmitter<string>();
 
     constructor() {
     }
@@ -23,8 +23,8 @@ export class PaginationComponent implements OnInit {
     ngOnInit() {
     }
 
-    setPage(pageNum: number) {
-        this.newPage.emit(pageNum);
+    setPage(link: string) {
+        this.newPage.emit(link);
     }
 
 }

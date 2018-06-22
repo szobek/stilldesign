@@ -22,8 +22,7 @@ export class AppComponent {
         router.events.subscribe(
             (res) => {
                 if (res instanceof NavigationStart) {
-                    console.log('res', res, res.url);
-                    if(res.url !== '/login') {
+                    if(res.url !== '/login' && res.url !== '/about' && res.url !== '/' ) {
                         this.authService.checkExpiredToken();
                     }
 

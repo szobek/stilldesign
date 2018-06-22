@@ -21,8 +21,11 @@ export class UserListComponent implements OnInit {
     users: Array<Usermodel> = [];
 
     ngOnInit() {
+        this.getUsers();
+    }
 
-        this.userService.getUsers().subscribe(
+    getUsers(url?: string) {
+        this.userService.getUsers((url) ? url : null).subscribe(
             (result: any) => {
                 console.log('a válasz: ', result);
                 this.users = result.data;
@@ -37,8 +40,9 @@ export class UserListComponent implements OnInit {
         );
     }
 
-    setPage() {
-
+    setPage(url) {
+        console.log('set page', url)
+        this.getUsers(url);
     }
 
 

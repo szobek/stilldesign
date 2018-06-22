@@ -18,8 +18,8 @@ export class UserService {
     }
 
 
-    getUsers() {
-        return this.http.get(this.userEndpoint).pipe(map((res: any) => res));
+    getUsers(url?) {
+        return this.http.get((url) ? url : this.userEndpoint).pipe(map((res: any) => res));
     }
 
     getUserDetail(id) {

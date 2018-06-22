@@ -4,16 +4,17 @@
       <nav aria-label="Page navigation example">
 
         <ul class="pagination justify-content-center">
-          <li class="page-item"  *ngIf="pagination?.links?.prev">
-            <a class="page-link">Előző</a>
+          <li class="page-item"  *ngIf="pagination?.links?.previous">
+            <a class="page-link" (click)="setPage(pagination?.links?.previous)">Előző</a>
           </li>
 
           <li class="page-item">
-            {{ pagination?.totalPages}} /{{ pagination?.currentPage}}
+            <a class="page-link">{{ pagination?.totalPages}} /{{ pagination?.currentPage}}</a>
+
           </li>
 
           <li class="page-item" *ngIf="pagination?.links?.next">
-            <a class="page-link" >Következő</a>
+            <a class="page-link" (click)="setPage(pagination?.links?.next)">Következő</a>
           </li>
         </ul>
 

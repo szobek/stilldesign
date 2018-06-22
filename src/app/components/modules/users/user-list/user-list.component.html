@@ -8,7 +8,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <app-pagination [pagination]="pagination" (selected-page)="setPage()"></app-pagination>
+            <app-pagination [pagination]="pagination" (selected-page)="setPage($event)"></app-pagination>
         </div>
     </div>
     <div class="row d-flex justify-content-center">
@@ -20,7 +20,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <app-pagination [pagination]="pagination" (selected-page)="setPage()"></app-pagination>
+            <app-pagination [pagination]="pagination" (selected-page)="setPage($event)"></app-pagination>
         </div>
     </div>
 </div>
