@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from './components/services/user.service';
 import {AuthService} from './components/services/auth.service';
 import {NavigationStart, Router} from '@angular/router';
@@ -8,17 +8,18 @@ import {NavigationStart, Router} from '@angular/router';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-    loader: boolean = false;
+export class AppComponent implements  OnDestroy{
+
+
+    loader: boolean;
+    loaderSubscribe;
 
     constructor(
         private userService: UserService,
         private authService: AuthService,
         private router: Router
     ) {
-        this.userService.loader$.subscribe(bool => {
-            this.loader = bool;
-        });
+
         router.events.subscribe(
             (res) => {
                 if (res instanceof NavigationStart) {
@@ -30,7 +31,22 @@ export class AppComponent {
             }
         );
 
+
+        this.loaderSubscribe = this.userService.loader$.subscribe(bool => {
+            this.loader = bool;
+        });
+
+
+
+
     }
+
+    ngOnDestroy(): void {
+        this.loaderSubscribe.unsubscribe();
+    }
+
+
+
 
 
 }

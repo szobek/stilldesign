@@ -22,27 +22,6 @@ export class UserCardComponent implements OnInit {
 
     }
 
-    deleteUser(id) {
-        if(confirm('Valóban törli?')) {
-            this.userService.loader$.next(true);
-            this.userService.deleteUser(id)
-                .subscribe(
-                    (deleted: any) => {
-                        console.log('delete successfull', deleted);
-                        this.userService.loader$.next(false);
-                        this.router.navigate(['/users']);
 
-                    },
-                    error => {
-                        this.userService.loader$.next(false);
-                        console.log('something went wrong...', error);
-                    },
-                    () => {
-                        console.log('complete delete')
-                    }
-                );
-        }
-
-    }
 
 }

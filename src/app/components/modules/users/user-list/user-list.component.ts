@@ -14,10 +14,8 @@ export class UserListComponent implements OnInit {
     pagination;
 
     constructor(private userService: UserService) {
-        console.log('user list constructor');
+
     }
-
-
     users: Array<Usermodel> = [];
 
     ngOnInit() {
@@ -25,13 +23,16 @@ export class UserListComponent implements OnInit {
     }
 
     getUsers(url?: string) {
+        this.userService.loader$.next(true);
+
         this.userService.getUsers((url) ? url : null).subscribe(
             (result: any) => {
-                console.log('a válasz: ', result);
                 this.users = result.data;
                 this.pagination = result.meta.pagination;
+                this.userService.loader$.next(false);
             },
             error => {
+                this.userService.loader$.next(false);
                 console.log('something went wrong...', error);
             },
             () => {
@@ -41,7 +42,6 @@ export class UserListComponent implements OnInit {
     }
 
     setPage(url) {
-        console.log('set page', url)
         this.getUsers(url);
     }
 

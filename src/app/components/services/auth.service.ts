@@ -52,10 +52,12 @@ export class AuthService {
         const expire = (localStorage.token_expires) ? localStorage.token_expires : 0;
 
         if(localStorage.token && localStorage.token_expires && localStorage.refreshToken) {
-            if (now < expire) { // még jó
+            if (now < expire) {
                 this.isLogged$.next(true);
             } else {
-                if (localStorage.refreshToken) { // ha van refresh token
+                console.log('nem kisebb a now');
+                if (localStorage.refreshToken) {
+                    console.log('van refresh');
                     this.refreshToken().subscribe(
                         (res: any) => {
                             console.log('sikeres refresh', res);

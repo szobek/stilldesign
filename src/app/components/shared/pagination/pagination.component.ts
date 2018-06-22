@@ -10,9 +10,7 @@ export class PaginationComponent implements OnInit {
     pagination;
 
     @Input('pagination') set paginationObject(pagination) {
-
         this.pagination = pagination;
-        console.log('a pagination:', pagination);
     }
 
     @Output('selected-page') newPage: EventEmitter<string> = new EventEmitter<string>();

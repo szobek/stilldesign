@@ -5,23 +5,68 @@
     </div>
     <div class="col-6 offset-3">
       <div class="card m-2" >
-        <form [formGroup]="userForm" (submit)="submitForm()">
+        <form [formGroup]="userForm" (submit)="submitForm()" (change)="changeForm()">
           <div class="card-body">
             <div class="card-title">
 
               <section class="form-group">
                 <label for="firstName">Vezetéknév</label>
-                <!--<input class="form-control" formControlName="firstName" placeholder="firstName" id="firstName" autocomplete="off"/>-->
+                <input class="form-control" formControlName="firstName" placeholder="firstName" id="firstName" autocomplete="off"/>
+
+                <div *ngIf="userForm.controls['firstName'].invalid && (userForm.controls['firstName'].dirty || userForm.controls['firstName'].touched)"
+                     class="alert alert-danger">
+
+                  <div *ngIf="userForm.controls['firstName'].errors.required">
+                    Name is required.
+                  </div>
+                  <div *ngIf="userForm.controls['firstName'].errors.minlength">
+                    Legalább 5 katakter
+                  </div>
+
+                </div>
+
+
               </section>
 
               <section class="form-group">
                 <label for="lastName">Keresztnév</label>
-                <!--<input class="form-control" formControlName="lastName" placeholder="lastName" id="lastName" autocomplete="off"/>-->
+                <input class="form-control" formControlName="lastName" placeholder="lastName" id="lastName" autocomplete="off"/>
+
+
+                <div *ngIf="userForm.controls['lastName'].invalid && (userForm.controls['lastName'].dirty || userForm.controls['lastName'].touched)"
+                     class="alert alert-danger">
+
+                  <div *ngIf="userForm.controls['lastName'].errors.required">
+                    Name is required.
+                  </div>
+                  <div *ngIf="userForm.controls['lastName'].errors.minlength">
+                    Legalább 5 katakter
+                  </div>
+
+                </div>
+
               </section>
 
               <section class="form-group">
                 <label for="lastName">Email</label>
                 <input class="form-control" formControlName="email" placeholder="lastName" id="email" autocomplete="off"/>
+
+                <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)"
+                     class="alert alert-danger">
+
+                  <div *ngIf="userForm.controls['email'].errors.required">
+                    Kötelező adat
+                  </div>
+                  <div *ngIf="userForm.controls['email'].errors.minlength">
+                    Legalább 10 katakter
+                  </div>
+                  <div *ngIf="userForm.controls['email'].errors.email">
+                    Nem megfelelő email cím
+                  </div>
+
+
+                </div>
+
               </section>
 
 
@@ -31,7 +76,21 @@
             <div class="text-info">
               <section class="form-group">
                 <label for="introduction">Leírás</label>
-                <!--<input class="form-control" formControlName="introduction" placeholder="introduction" id="introduction" autocomplete="off"/>-->
+                <input class="form-control" formControlName="introduction" placeholder="introduction" id="introduction" autocomplete="off"/>
+
+                <div *ngIf="userForm.controls['introduction'].invalid && (userForm.controls['introduction'].dirty || userForm.controls['introduction'].touched)"
+                     class="alert alert-danger">
+
+                  <div *ngIf="userForm.controls['introduction'].errors.required">
+                    Kötelező adat
+                  </div>
+                  <div *ngIf="userForm.controls['introduction'].errors.minlength">
+                    Legalább 5 katakter
+                  </div>
+
+
+
+                </div>
               </section>
 
             </div>
@@ -41,7 +100,20 @@
               <dt>Pozíció</dt>
               <dd>
                 <section class="form-group">
-                  <!--<input class="form-control" formControlName="position" placeholder="position" id="position" autocomplete="off"/>-->
+                  <input class="form-control" formControlName="position" placeholder="position" id="position" autocomplete="off"/>
+
+                  <div *ngIf="userForm.controls['position'].invalid && (userForm.controls['position'].dirty || userForm.controls['position'].touched)"
+                       class="alert alert-danger">
+
+                    <div *ngIf="userForm.controls['position'].errors.required">
+                      Kötelező adat
+                    </div>
+                    <div *ngIf="userForm.controls['position'].errors.minlength">
+                      Legalább 5 katakter
+                    </div>
+
+                  </div>
+
                 </section>
 
               </dd>
@@ -49,7 +121,18 @@
               <dt>Telefon</dt>
               <dd>
                 <section class="form-group">
-                  <!--<input class="form-control" formControlName="phone" placeholder="phone" id="phone" autocomplete="off"/>-->
+                  <input class="form-control" formControlName="phone" placeholder="phone" id="phone" autocomplete="off"/>
+                  <div *ngIf="userForm.controls['phone'].invalid && (userForm.controls['phone'].dirty || userForm.controls['phone'].touched)"
+                       class="alert alert-danger">
+
+                    <div *ngIf="userForm.controls['phone'].errors.required">
+                      Kötelező adat
+                    </div>
+                    <div *ngIf="userForm.controls['phone'].errors.minlength">
+                      Legalább 10 katakter
+                    </div>
+
+                  </div>
                 </section>
 
               </dd>
@@ -61,17 +144,48 @@
               <section class="form-group">
                 <label for="password">Jelszó</label>
                 <input class="form-control" type="password" formControlName="password" placeholder="jelszó" id="password" autocomplete="off"/>
+
+                <div *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].dirty || userForm.controls['password'].touched)"
+                     class="alert alert-danger">
+
+                  <div *ngIf="userForm.controls['password'].errors.required">
+                    Kötelező adat
+                  </div>
+                  <div *ngIf="userForm.controls['password'].errors.minlength">
+                    Legalább 10 katakter
+                  </div>
+
+                </div>
+
               </section>
               <section class="form-group">
                 <label for="password_confirmation">Jelszó újra</label>
-                <!--<input class="form-control" type="password" formControlName="password_confirmation" placeholder="jelszó újra" id="password_confirmation" autocomplete="off"/>-->
+                <input class="form-control" type="password" formControlName="password_confirmation" placeholder="jelszó újra" id="password_confirmation" autocomplete="off"/>
+
+                <div *ngIf="userForm.controls['password_confirmation'].invalid && (userForm.controls['password_confirmation'].dirty || userForm.controls['password_confirmation'].touched)"
+                     class="alert alert-danger">
+
+                  <div *ngIf="userForm.controls['password_confirmation'].errors.required">
+                    Kötelező adat
+                  </div>
+                  <div *ngIf="userForm.controls['password_confirmation'].errors.minlength">
+                    Legalább 10 katakter
+                  </div>
+                  <div *ngIf="userForm.controls['password_confirmation'].errors.MatchPassword">
+                    Nem egyező jelszavak
+                  </div>
+
+
+                </div>
+
               </section>
+
             </section>
 
 
 
             <section>
-              <button class="btn btn-success">Mentés</button>
+              <button class="btn btn-success" [disabled]="!userForm.valid">Mentés</button>
             </section>
 
           </div>

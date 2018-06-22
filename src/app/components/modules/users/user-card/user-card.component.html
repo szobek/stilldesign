@@ -2,7 +2,7 @@
   <div class="card-body">
     <p>
       <button class="btn btn-sm btn-primary" [routerLink]="['/users/update', {id: user.id}]">Szerk.</button>
-      <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">Töröl</button>
+      <button class="btn btn-danger btn-sm" [routerLink]="['/users/delete', {id: user.id}]" >Töröl</button>
     </p>
     <h5 class="card-title">
 

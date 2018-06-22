@@ -1,6 +1,10 @@
-<div class="loader-frame" *ngIf="loader">
-    <div class="loader"></div>
-</div>
+<ng-container *ngIf="loader">
+    <div class="loader-frame" *ngIf="loader">
+        <div class="loader"></div>
+    </div>
+</ng-container>
+
+
 <app-nav></app-nav>
 <div class="container" id="app-container">
     <div class="row">
