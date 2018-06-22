@@ -6,8 +6,7 @@ export const environment = {
   production: false,
     apiEndpoint: 'http://api.iss.stilldesign.work',
     auth: {
-        username: 'dev@stilldesign.hu',
-        password: 'StillPass',
+
         client_id: 2,
         client_secret: 'Admin_Production',
         grant_type: 'password',

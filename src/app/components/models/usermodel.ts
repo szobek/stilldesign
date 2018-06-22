@@ -6,6 +6,7 @@ export class Usermodel {
     position: string;
     email: string;
     phone: string;
+    id: number;
 
 
     constructor(param) {

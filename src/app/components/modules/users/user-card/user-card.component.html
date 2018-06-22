@@ -1,0 +1,28 @@
+<div class="card m-2" style="width: 200px;">
+  <div class="card-body">
+    <h5 class="card-title">
+      <a [routerLink]="['/users/detail', {id: user.id}]">
+        {{user.lastName}} {{ user.firstName}}
+      </a>
+      <span [routerLink]="['/users/update', {id: user.id}]">Szerk.</span>
+
+    </h5>
+    <p class="text-info">
+      {{user.introduction}}
+
+    </p>
+    <dl>
+      <dt>Pozíció</dt>
+      <dd>{{user.position}}</dd>
+
+      <dt>E-mail</dt>
+      <dd>{{user.email}}</dd>
+
+      <dt>Telefon</dt>
+      <dd>{{user.phone}}</dd>
+
+
+    </dl>
+
+  </div>
+</div>

@@ -19,4 +19,8 @@ export class UserService {
     getUsers() {
         return this.http.get(this.userEndpoint).pipe(map((res: any) => res));
     }
+
+    getUserDetail(id) {
+        return this.http.get(`${this.userEndpoint}/${id}`).pipe(map((res: any) => res));
+    }
 }

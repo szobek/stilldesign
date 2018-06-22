@@ -12,7 +12,7 @@ import {CollapseModule} from 'ngx-bootstrap';
 
 export const routes = [
     {path: 'login', loadChildren: './components/modules/login/login.module#LoginModule'},
-    {path: 'users', loadChildren: './components/modules/users/users.module#UsersModule', canActivate: [LoginGuard]},
+    {path: 'users', loadChildren: './components/modules/users/users.module#UsersModule'},
 ];
 
 @NgModule({
