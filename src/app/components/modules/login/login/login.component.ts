@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.loginForm = this.formbBuilder.group({
-            name: new FormControl('dev@stilldesign.hu'),
-            password: new FormControl('StillPass')
+            name: new FormControl(''),
+            password: new FormControl('')
         });
 
     }

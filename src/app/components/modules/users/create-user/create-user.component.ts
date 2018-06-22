@@ -17,15 +17,15 @@ export class CreateUserComponent implements OnInit {
     constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {
 
         this.userForm = this.formBuilder.group({
-            firstName: new FormControl(`${this.lorem(1)}`, [Validators.required, Validators.minLength(5)]),
-            lastName: new FormControl(`${this.lorem(1)}`, [Validators.required, Validators.minLength(5)]),
-            phone: new FormControl('0620123456789', [Validators.required, Validators.minLength(10)]),
-            introduction: new FormControl(`${this.lorem(5)}`, [Validators.required, Validators.minLength(5)]),
-            position: new FormControl(`${this.lorem(2)}`, [Validators.required, Validators.minLength(5)]),
-            email: new FormControl(`foo${new Date().getTime()}@example.com`, [Validators.required, Validators.email, Validators.minLength(10)]),
-            password: new FormControl('12345678910', [Validators.required, Validators.minLength(10)]),
-            password_confirmation: new FormControl('12345678910', [Validators.required, Validators.minLength(10)]),
-        },{
+            firstName: new FormControl(`${(!environment.production) ? this.lorem(1) : ''}`, [Validators.required, Validators.minLength(5)]),
+            lastName: new FormControl(`${(!environment.production) ? this.lorem(1) : ''}`, [Validators.required, Validators.minLength(5)]),
+            phone: new FormControl(`${(!environment.production) ? '0620123456789' : ''}`, [Validators.required, Validators.minLength(10)]),
+            introduction: new FormControl(`${(!environment.production) ? this.lorem(5) : ''}`, [Validators.required, Validators.minLength(5)]),
+            position: new FormControl(`${(!environment.production) ? this.lorem(2) : ''}`, [Validators.required, Validators.minLength(5)]),
+            email: new FormControl(`${(!environment.production) ? `foo${new Date().getTime()}@example.com` : ''}`, [Validators.required, Validators.email, Validators.minLength(10)]),
+            password: new FormControl(`${(!environment.production) ? '123456789123' : ''}`, [Validators.required, Validators.minLength(10)]),
+            password_confirmation: new FormControl(`${(!environment.production) ? '123456789123' : ''}`, [Validators.required, Validators.minLength(10)]),
+        }, {
             validator: PasswordValidation.MatchPassword
         });
     }
@@ -44,7 +44,7 @@ export class CreateUserComponent implements OnInit {
 
     submitForm() {
 
-        if(!this.userForm.valid) {
+        if (!this.userForm.valid) {
             alert('Hibás form adatok, kérem javítsa');
             return false;
         }
@@ -66,7 +66,7 @@ export class CreateUserComponent implements OnInit {
     }
 
     changeForm() {
-        console.log(this.userForm)
+        console.log(this.userForm);
     }
 
 }
