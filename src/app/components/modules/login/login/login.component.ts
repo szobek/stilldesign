@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {AuthService} from '../../../services/auth.service';
 import {Router} from '@angular/router';
+import {UserService} from '../../../services/user.service';
 
 
 @Component({
@@ -16,7 +17,9 @@ export class LoginComponent implements OnInit {
 
     constructor(private formbBuilder: FormBuilder,
                 private authService: AuthService,
-                private router: Router) {
+                private router: Router,
+                private userService: UserService
+                ) {
     }
 
     ngOnInit() {
@@ -29,22 +32,18 @@ export class LoginComponent implements OnInit {
 
     submitForm() {
 
+        this.userService.loader$.next(true);
         this.authService.login(this.loginForm.value.name, this.loginForm.value.password).subscribe(
             (res: any) => {
-                localStorage.token = res.access_token;
-                localStorage.token_expires = `${new Date().getTime()} + ${parseInt(res.expires_in) * 1000}`;
+                this.authService.collectTokenData(res);
                 this.authService.isLogged$.next(true);
                 this.router.navigate(['/users']);
-
-                console.log('sikeres');
             },
             error => {
-                console.log('something went wrong...', error);
-                localStorage.clear();
-                this.router.navigate(['/login']);
-
+                this.authService.logout();
             },
             () => {
+                this.userService.loader$.next(false);
                 console.log('success login');
             }
         );

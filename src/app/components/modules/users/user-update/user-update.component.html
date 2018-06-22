@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h5 routerLink="/users">Vissza</h5>
+        </div>
+        <div class="col-6 offset-3">
+            <div class="card m-2" >
+                <form [formGroup]="userForm" (submit)="submitForm()">
+                    <div class="card-body">
+                        <div class="card-title">
+
+                            <section class="form-group">
+                                <label for="firstName">Vezetéknév</label>
+                                <input class="form-control" formControlName="firstName" placeholder="firstName" id="firstName"/>
+                            </section>
+
+                            <section class="form-group">
+                                <label for="lastName">Keresztnév</label>
+                                <input class="form-control" formControlName="lastName" placeholder="lastName" id="lastName"/>
+                            </section>
+
+
+                        </div>
+                        <div class="text-info">
+                            <section class="form-group">
+                                <label for="introduction">Leírás</label>
+                                <input class="form-control" formControlName="introduction" placeholder="introduction" id="introduction"/>
+                            </section>
+
+                        </div>
+
+                        <dl>
+
+                            <dt>Pozíció</dt>
+                            <dd>
+                                <section class="form-group">
+                                    <input class="form-control" formControlName="position" placeholder="position" id="position"/>
+                                </section>
+
+                            </dd>
+
+                            <dt>Telefon</dt>
+                            <dd>
+                                <section class="form-group">
+                                    <input class="form-control" formControlName="phone" placeholder="phone" id="phone"/>
+                                </section>
+
+                            </dd>
+
+
+                        </dl>
+
+                        <section>
+                            <button class="btn btn-success">Mentés</button>
+                        </section>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,11 +5,16 @@
 export const environment = {
   production: false,
     apiEndpoint: 'http://api.iss.stilldesign.work',
-    auth: {
-
+    token: {
         client_id: 2,
         client_secret: 'Admin_Production',
         grant_type: 'password',
+        scope: '*',
+    },
+    refresh: {
+        grant_type: 'refresh_token',
+        client_id: 2,
+        client_secret: 'Admin_Production',
         scope: '*',
     }
 };
