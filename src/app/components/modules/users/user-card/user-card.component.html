@@ -5,15 +5,16 @@
         {{user.lastName}} {{ user.firstName}}
       </a>
       <span [routerLink]="['/users/update', {id: user.id}]">Szerk.</span>
+      <!--<button (click)="deleteUser(user.id)">delete</button>-->
 
     </h5>
     <p class="text-info">
-      {{user.introduction}}
+      {{user.introduction[0]?.value}}
 
     </p>
     <dl>
       <dt>Pozíció</dt>
-      <dd>{{user.position}}</dd>
+      <dd>{{user.position[0]?.value}}</dd>
 
       <dt>E-mail</dt>
       <dd>{{user.email}}</dd>

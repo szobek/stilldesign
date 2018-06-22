@@ -31,4 +31,19 @@ export class UserService {
         user.active = true;
         return this.http.put(`${this.userEndpoint}/${user.id}`, user).pipe(map((res: any) => res));
     }
+
+    createUser(user) {
+
+        const tempUser = {
+            name: 'kiss pista',
+            email: `foo${new Date().getTime()}@example.com`,
+            password: '123456789',
+            active: true
+        };
+        return this.http.post(`http://api.iss.stilldesign.work/admin/user`, tempUser).pipe(map((res: any) => res));
+    }
+
+    deleteUser(id) {
+        return this.http.delete(`http://api.iss.stilldesign.work/admin/user/${id}` ).pipe(map((res: any) => res));
+    }
 }

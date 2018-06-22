@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h5 routerLink="/users">Vissza</h5>
+    </div>
+    <div class="col-6 offset-3">
+      <div class="card m-2" >
+        <form [formGroup]="userForm" (submit)="submitForm()">
+          <div class="card-body">
+            <div class="card-title">
+
+              <section class="form-group">
+                <label for="firstName">Vezetéknév</label>
+                <!--<input class="form-control" formControlName="firstName" placeholder="firstName" id="firstName" autocomplete="off"/>-->
+              </section>
+
+              <section class="form-group">
+                <label for="lastName">Keresztnév</label>
+                <!--<input class="form-control" formControlName="lastName" placeholder="lastName" id="lastName" autocomplete="off"/>-->
+              </section>
+
+              <section class="form-group">
+                <label for="lastName">Email</label>
+                <input class="form-control" formControlName="email" placeholder="lastName" id="email" autocomplete="off"/>
+              </section>
+
+
+
+
+            </div>
+            <div class="text-info">
+              <section class="form-group">
+                <label for="introduction">Leírás</label>
+                <!--<input class="form-control" formControlName="introduction" placeholder="introduction" id="introduction" autocomplete="off"/>-->
+              </section>
+
+            </div>
+
+            <dl>
+
+              <dt>Pozíció</dt>
+              <dd>
+                <section class="form-group">
+                  <!--<input class="form-control" formControlName="position" placeholder="position" id="position" autocomplete="off"/>-->
+                </section>
+
+              </dd>
+
+              <dt>Telefon</dt>
+              <dd>
+                <section class="form-group">
+                  <!--<input class="form-control" formControlName="phone" placeholder="phone" id="phone" autocomplete="off"/>-->
+                </section>
+
+              </dd>
+
+
+            </dl>
+
+            <section>
+              <section class="form-group">
+                <label for="password">Jelszó</label>
+                <input class="form-control" type="password" formControlName="password" placeholder="jelszó" id="password" autocomplete="off"/>
+              </section>
+              <section class="form-group">
+                <label for="password_confirmation">Jelszó újra</label>
+                <!--<input class="form-control" type="password" formControlName="password_confirmation" placeholder="jelszó újra" id="password_confirmation" autocomplete="off"/>-->
+              </section>
+            </section>
+
+
+
+            <section>
+              <button class="btn btn-success">Mentés</button>
+            </section>
+
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

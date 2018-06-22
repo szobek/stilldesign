@@ -1,4 +1,11 @@
 <div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <button class="btn btn-primary" [routerLink]="['../create']">
+                Új felhasználó
+            </button>
+        </div>
+    </div>
     <div class="row d-flex justify-content-center">
         <ng-container *ngFor="let user of users">
             <app-user-card [user]="user"></app-user-card>

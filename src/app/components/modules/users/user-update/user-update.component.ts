@@ -51,11 +51,15 @@ export class UserUpdateComponent implements OnInit {
     }
 
     setFormValue() {
+
+        /*
         Object.keys(this.user).forEach((key, index) => {
             if (this.userForm.controls.hasOwnProperty(key)) {
                 this.userForm.controls[key].setValue(this.user[key]);
             }
         });
+
+        */
         console.log('a form ', this.userForm.controls)
 
     }

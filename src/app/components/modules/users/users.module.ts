@@ -7,6 +7,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
       ReactiveFormsModule
   ],
     providers: [FormBuilder],
-  declarations: [UserListComponent, UserDetailComponent, UserCardComponent, UserUpdateComponent]
+  declarations: [UserListComponent, UserDetailComponent, UserCardComponent, UserUpdateComponent, CreateUserComponent]
 })
 export class UsersModule { }
