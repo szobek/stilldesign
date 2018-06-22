@@ -8,12 +8,15 @@ import { UserCardComponent } from './user-card/user-card.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
 import { CreateUserComponent } from './create-user/create-user.component';
+import {PaginationComponent} from '../../shared/pagination/pagination.component';
+import {SharedModule} from '../../shared/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     UsersRoutingModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      SharedModule
   ],
     providers: [FormBuilder],
   declarations: [UserListComponent, UserDetailComponent, UserCardComponent, UserUpdateComponent, CreateUserComponent]

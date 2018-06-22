@@ -10,6 +10,9 @@ import {Usermodel} from '../../../models/usermodel';
 })
 export class UserListComponent implements OnInit {
 
+
+    pagination;
+
     constructor(private userService: UserService) {
         console.log('user list constructor');
     }
@@ -23,6 +26,7 @@ export class UserListComponent implements OnInit {
             (result: any) => {
                 console.log('a válasz: ', result);
                 this.users = result.data;
+                this.pagination = result.meta.pagination;
             },
             error => {
                 console.log('something went wrong...', error);
@@ -31,6 +35,10 @@ export class UserListComponent implements OnInit {
                 console.log('complete users call');
             },
         );
+    }
+
+    setPage() {
+
     }
 
 

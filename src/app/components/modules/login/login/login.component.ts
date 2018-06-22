@@ -41,6 +41,10 @@ export class LoginComponent implements OnInit {
             },
             error => {
                 this.authService.logout();
+                this.userService.loader$.next(false);
+                if(error.status === 401)
+                    alert('Hibás bejelentkezési adatok')
+                console.log('error in login', error);
             },
             () => {
                 this.userService.loader$.next(false);

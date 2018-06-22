@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from '../../../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-user-card',
@@ -14,7 +15,7 @@ export class UserCardComponent implements OnInit {
         this.user = param;
     }
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService, private router: Router) {
     }
 
     ngOnInit() {
@@ -22,7 +23,26 @@ export class UserCardComponent implements OnInit {
     }
 
     deleteUser(id) {
-        this.userService.deleteUser(id).subscribe(res => console.log, error => console.log, () => console.log);
+        if(confirm('Valóban törli?')) {
+            this.userService.loader$.next(true);
+            this.userService.deleteUser(id)
+                .subscribe(
+                    (deleted: any) => {
+                        console.log('delete successfull', deleted);
+                        this.userService.loader$.next(false);
+                        this.router.navigate(['/users']);
+
+                    },
+                    error => {
+                        this.userService.loader$.next(false);
+                        console.log('something went wrong...', error);
+                    },
+                    () => {
+                        console.log('complete delete')
+                    }
+                );
+        }
+
     }
 
 }

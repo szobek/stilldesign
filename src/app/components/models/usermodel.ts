@@ -2,8 +2,8 @@ export class Usermodel {
 
     lastName: string;
     firstName: string;
-    introduction: string;
-    position: string;
+    introduction: Array<any>;
+    position: Array<any>;
     email: string;
     phone: string;
     id: number;

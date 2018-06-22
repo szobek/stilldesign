@@ -19,15 +19,7 @@ export class UserUpdateComponent implements OnInit {
                 private userService: UserService, private formBuilder: FormBuilder) {
 
 
-        this.userForm = this.formBuilder.group({
-            firstName: new FormControl('', [Validators.required, Validators.minLength(5)]),
-            lastName: new FormControl('', [Validators.required, Validators.minLength(5)]),
-            phone: new FormControl('', [Validators.required, Validators.minLength(10)]),
-            introduction: new FormControl('', [Validators.required, Validators.minLength(5)]),
-            position: new FormControl('', [Validators.required, Validators.minLength(5)]),
-            id: new FormControl('', [Validators.required]),
-            email: new FormControl('', [Validators.required]),
-        });
+
     }
 
     ngOnInit() {
@@ -39,7 +31,7 @@ export class UserUpdateComponent implements OnInit {
         this.userService.getUserDetail(this.active.snapshot.params.id).subscribe(
             (user: any) => {
                 this.user = user.data;
-                this.setFormValue();
+                this.createForm();
             },
             error => {
                 console.log('something went wrong', error);
@@ -50,7 +42,23 @@ export class UserUpdateComponent implements OnInit {
         );
     }
 
+    createForm() {
+        this.userForm = this.formBuilder.group({
+            firstName: new FormControl(`${this.user.firstName}`, [Validators.required, Validators.minLength(5)]),
+            lastName: new FormControl(`${this.user.lastName}`, [Validators.required, Validators.minLength(5)]),
+            phone: new FormControl(`${this.user.phone}`, [Validators.required, Validators.minLength(10)]),
+            introduction: new FormControl((this.user.introduction.length) ? `${this.user.introduction[0].value}` : '', [Validators.required, Validators.minLength(5)]),
+            position: new FormControl((this.user.position.length) ? `${this.user.position[0].value}` : '', [Validators.required, Validators.minLength(5)]),
+            id: new FormControl(`${this.user.id}`, [Validators.required]),
+            email: new FormControl(`${this.user.email}`, [Validators.required]),
+        });
+    }
+
+
+    //deprecated....
     setFormValue() {
+
+
 
         /*
         Object.keys(this.user).forEach((key, index) => {

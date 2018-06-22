@@ -1,11 +1,16 @@
 <div class="card m-2 " >
   <div class="card-body">
+    <p>
+      <button class="btn btn-sm btn-primary" [routerLink]="['/users/update', {id: user.id}]">Szerk.</button>
+      <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">Töröl</button>
+    </p>
     <h5 class="card-title">
+
+
       <a [routerLink]="['/users/detail', {id: user.id}]">
         {{user.lastName}} {{ user.firstName}}
       </a>
-      <span [routerLink]="['/users/update', {id: user.id}]">Szerk.</span>
-      <!--<button (click)="deleteUser(user.id)">delete</button>-->
+
 
     </h5>
     <p class="text-info">

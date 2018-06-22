@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <nav aria-label="Page navigation example">
+
+        <ul class="pagination justify-content-center">
+          <li class="page-item"  *ngIf="pagination?.links?.prev">
+            <a class="page-link">Előző</a>
+          </li>
+
+          <li class="page-item">
+            {{ pagination?.totalPages}} /{{ pagination?.currentPage}}
+          </li>
+
+          <li class="page-item" *ngIf="pagination?.links?.next">
+            <a class="page-link" >Következő</a>
+          </li>
+        </ul>
+
+      </nav>
+    </div>
+
+  </div>
+</div>

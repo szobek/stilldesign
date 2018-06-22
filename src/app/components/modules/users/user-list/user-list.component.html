@@ -6,10 +6,21 @@
             </button>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12">
+            <app-pagination [pagination]="pagination" (selected-page)="setPage()"></app-pagination>
+        </div>
+    </div>
     <div class="row d-flex justify-content-center">
+
         <ng-container *ngFor="let user of users">
             <app-user-card [user]="user"></app-user-card>
 
         </ng-container>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <app-pagination [pagination]="pagination" (selected-page)="setPage()"></app-pagination>
+        </div>
     </div>
 </div>
